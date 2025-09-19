@@ -1,0 +1,94 @@
+/* Estilos para el megamenú */
+.dropdown-menu.megamenu {
+  width: 700px;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  z-index: 1050;
+  padding: 2rem;
+  border: 1px solid rgba(0,0,0,.125);
+  border-radius: 0.5rem;
+  background-color: #fff;
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.2);
+  margin-top: 0.125rem;
+}
+
+/* Asegurar que el dropdown parent tenga position relative */
+.nav-item.dropdown {
+  position: relative;
+}
+
+/* Estilos para las columnas del megamenú */
+.megamenu .row {
+  margin: 0;
+  row-gap: 1.5rem;
+}
+
+.megamenu .col-lg-3 {
+  padding: 0 1rem;
+  border-right: 1px solid #e9ecef;
+}
+
+.megamenu .col-lg-3:last-child {
+  border-right: none;
+}
+
+.megamenu .dropdown-header {
+  font-weight: 600;
+  color: #495057;
+  margin-bottom: 1rem;
+  border-bottom: 2px solid #0d6efd;
+  padding-bottom: 0.5rem;
+  text-transform: uppercase;
+  font-size: 0.875rem;
+  letter-spacing: 0.5px;
+}
+
+.megamenu .dropdown-item {
+  padding: 0.5rem 0;
+  color: #212529;
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  transition: all 0.2s ease;
+  font-size: 0.9rem;
+  line-height: 1.4;
+}
+
+.megamenu .dropdown-item:hover {
+  background-color: #f8f9fa;
+  color: #0d6efd;
+  border-bottom-color: #dee2e6;
+  padding-left: 0.5rem;
+}
+
+.megamenu .dropdown-item:not(:last-child) {
+  margin-bottom: 0.25rem;
+}
+
+/* Responsive para dispositivos móviles */
+@media (max-width: 991.98px) {
+  .dropdown-menu.megamenu {
+    width: 100%;
+    position: static;
+    box-shadow: none;
+    border: none;
+    margin-top: 0.5rem;
+    padding: 1rem;
+  }
+  
+  .megamenu .row {
+    margin: 0;
+    row-gap: 2rem;
+  }
+  
+  .megamenu .col-lg-3 {
+    margin-bottom: 1.5rem;
+    border-right: none;
+    border-bottom: 1px solid #e9ecef;
+    padding-bottom: 1rem;
+  }
+  
+  .megamenu .col-lg-3:last-child {
+    border-bottom: none;
+  }
+}
