@@ -1,94 +1,211 @@
-/* Estilos para el megamenú */
+/* --- Importación de Tipografías de Google Fonts --- */
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&family=Roboto:wght@400;500&display=swap");
+
+/* --- Variables de Color Globales (Basado en Documento UI) --- */
+:root {
+  --color-primario: #3c2866; /* Púrpura Principal */
+  --color-acento: #fdb702; /* Amarillo Acento */
+  --color-texto-claro: #ffffff;
+  --color-fondo-neutro: #f5f5f5;
+  --color-texto-secundario: #6c757d;
+  --font-titulos: "Montserrat", sans-serif;
+  --font-parrafos: "Roboto", sans-serif;
+}
+
+/* --- Estilos Generales del Body --- */
+body {
+  font-family: var(--font-parrafos);
+  background-color: var(--color-fondo-neutro);
+  color: #333;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-titulos);
+  font-weight: 700;
+}
+
+/* --- Barra de Navegación (Navbar) --- */
+.navbar {
+  background-color: var(--color-primario) !important;
+}
+
+.navbar-brand,
+.navbar .nav-link {
+  color: var(--color-texto-claro) !important;
+  font-family: var(--font-titulos);
+  font-weight: 600;
+  transition: color 0.3s ease;
+}
+
+.navbar .nav-link:hover,
+.navbar .nav-link.active {
+  color: var(--color-acento) !important;
+}
+
+/* --- Mega Menú de Categorías --- */
 .dropdown-menu.megamenu {
-  width: 700px;
-  position: absolute;
-  top: 100%;
-  left: 0;
-  z-index: 1050;
-  padding: 2rem;
-  border: 1px solid rgba(0,0,0,.125);
-  border-radius: 0.5rem;
-  background-color: #fff;
-  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.2);
-  margin-top: 0.125rem;
-}
-
-/* Asegurar que el dropdown parent tenga position relative */
-.nav-item.dropdown {
-  position: relative;
-}
-
-/* Estilos para las columnas del megamenú */
-.megamenu .row {
-  margin: 0;
-  row-gap: 1.5rem;
-}
-
-.megamenu .col-lg-3 {
-  padding: 0 1rem;
-  border-right: 1px solid #e9ecef;
-}
-
-.megamenu .col-lg-3:last-child {
-  border-right: none;
+  width: 650px;
+  padding: 1.5rem;
+  border: none;
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
 }
 
 .megamenu .dropdown-header {
-  font-weight: 600;
-  color: #495057;
-  margin-bottom: 1rem;
-  border-bottom: 2px solid #0d6efd;
+  font-family: var(--font-titulos);
+  color: var(--color-primario);
+  font-size: 1rem;
+  border-bottom: 2px solid var(--color-primario);
   padding-bottom: 0.5rem;
-  text-transform: uppercase;
-  font-size: 0.875rem;
-  letter-spacing: 0.5px;
+  margin-bottom: 0.5rem;
 }
 
 .megamenu .dropdown-item {
-  padding: 0.5rem 0;
-  color: #212529;
-  text-decoration: none;
-  border-bottom: 1px solid transparent;
+  font-family: var(--font-parrafos);
+  padding: 0.5rem 1rem;
   transition: all 0.2s ease;
-  font-size: 0.9rem;
-  line-height: 1.4;
 }
 
 .megamenu .dropdown-item:hover {
-  background-color: #f8f9fa;
-  color: #0d6efd;
-  border-bottom-color: #dee2e6;
-  padding-left: 0.5rem;
+  background-color: var(--color-fondo-neutro);
+  color: var(--color-primario);
+  font-weight: 500;
 }
 
-.megamenu .dropdown-item:not(:last-child) {
-  margin-bottom: 0.25rem;
+/* --- Estilo de Botones --- */
+.btn-primary {
+  background-color: var(--color-acento) !important;
+  border-color: var(--color-acento) !important;
+  color: var(--color-primario) !important;
+  font-family: var(--font-titulos);
+  font-weight: 700;
+  text-transform: uppercase;
+  transition: all 0.3s ease;
 }
 
-/* Responsive para dispositivos móviles */
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.btn-secondary {
+  background-color: transparent !important;
+  border-color: var(--color-acento) !important;
+  color: var(--color-acento) !important;
+  font-family: var(--font-titulos);
+  font-weight: 700;
+}
+
+.btn-secondary:hover {
+  background-color: var(--color-acento) !important;
+  color: var(--color-primario) !important;
+}
+
+/* --- Estilo de Tarjetas de Producto --- */
+.card {
+  border: none;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+  transition: all 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+}
+
+.card-title {
+  font-family: var(--font-titulos);
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+.card-text,
+.list-group-item {
+  font-family: var(--font-parrafos);
+  color: var(--color-texto-secundario);
+}
+
+.card .precio {
+  font-family: var(--font-titulos);
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--color-primario);
+}
+
+.card .precio-remate {
+  color: var(--color-acento);
+}
+
+.card .precio-original-tachado {
+  text-decoration: line-through;
+  color: var(--color-texto-secundario);
+  font-size: 1rem;
+  margin-left: 0.5rem;
+}
+
+/* --- Estilo para la lista de "Más Buscados" --- */
+.list-group-item-action:hover {
+  background-color: var(--color-fondo-neutro);
+  color: var(--color-primario);
+}
+
+/* --- Footer --- */
+footer {
+  background-color: var(--color-primario);
+}
+
+/*
+==============================================
+=========== ESTILOS RESPONSIVOS ==============
+==============================================
+*/
+
+/* --- Para Tablets y dispositivos más pequeños (menor a 992px) --- */
 @media (max-width: 991.98px) {
+  /* Cuando la barra de navegación se colapsa (en modo "hamburguesa"),
+      el mega menú debe comportarse como un menú desplegable normal.
+    */
   .dropdown-menu.megamenu {
-    width: 100%;
-    position: static;
-    box-shadow: none;
-    border: none;
-    margin-top: 0.5rem;
+    width: auto; /* Ancho automático en lugar de fijo */
     padding: 1rem;
+    box-shadow: none; /* Quitamos la sombra especial */
   }
-  
+
   .megamenu .row {
-    margin: 0;
-    row-gap: 2rem;
+    display: block; /* Desactivamos las filas */
   }
-  
-  .megamenu .col-lg-3 {
-    margin-bottom: 1.5rem;
-    border-right: none;
-    border-bottom: 1px solid #e9ecef;
-    padding-bottom: 1rem;
+
+  .megamenu .col-lg-3,
+  .megamenu .col-6 {
+    width: 100%; /* Cada columna ocupa todo el ancho */
+    margin-bottom: 1rem;
   }
-  
-  .megamenu .col-lg-3:last-child {
-    border-bottom: none;
+
+  .megamenu .dropdown-header {
+    border-bottom: 1px solid #ddd;
+  }
+}
+
+/* --- Para Celulares (menor a 576px) --- */
+@media (max-width: 576px) {
+  h1 {
+    font-size: 2rem;
+  }
+
+  h2 {
+    font-size: 1.5rem;
+  }
+
+  .card .precio {
+    font-size: 1.2rem;
+  }
+
+  .btn {
+    font-size: 0.9rem;
   }
 }
