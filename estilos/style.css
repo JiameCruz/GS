@@ -9,7 +9,7 @@
   --color-fondo-neutro: #f5f5f5;
   --color-texto-secundario: #6c757d;
   --font-titulos: "Montserrat", sans-serif;
-  --font-parrafos: "Roboto", sans-serif;
+  --font-parrafos: "Montserrat", sans-serif;
 }
 
 /* --- Estilos Generales del Body --- */
@@ -208,4 +208,482 @@ footer {
   .btn {
     font-size: 0.9rem;
   }
+}
+
+/* --- ESTILOS ADICIONALES PARA JAVASCRIPT --- */
+
+/* Transición suave para el megamenú */
+.dropdown-menu {
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+/* Animación para el contador del carrito (usando Animate.css) */
+/* No es necesario añadir la librería, Bootstrap la incluye o podemos simularla */
+.animate__bounce {
+  animation-name: bounce;
+  animation-duration: 1s;
+  animation-fill-mode: both;
+}
+@keyframes bounce {
+  0%,
+  20%,
+  53%,
+  80%,
+  100% {
+    transform: translate3d(0, 0, 0);
+  }
+  40%,
+  43% {
+    transform: translate3d(0, -20px, 0);
+  }
+  70% {
+    transform: translate3d(0, -10px, 0);
+  }
+  90% {
+    transform: translate3d(0, -4px, 0);
+  }
+}
+
+/* Animación de entrada para las tarjetas */
+.card.fade-in-up {
+  animation: fadeInUp 0.6s ease-out forwards;
+}
+
+/* Keyframes para la animación de entrada */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* --- ESTILOS PARA BÚSQUEDA Y CARRITO --- */
+
+/* Modal de Búsqueda */
+.search-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(44, 28, 77, 0.95);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  visibility: hidden;
+  z-index: 1056; /* Mayor que el navbar */
+  transition: opacity 0.4s ease, visibility 0.4s ease;
+}
+
+.search-overlay.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.search-overlay-content {
+  width: 90%;
+  max-width: 600px;
+}
+
+.search-input {
+  width: 100%;
+  padding: 15px 20px;
+  border: 2px solid var(--color-acento);
+  background: transparent;
+  color: var(--color-texto-claro);
+  font-size: 1.5rem;
+  font-family: var(--font-titulos);
+  border-radius: 50px;
+}
+.search-input::placeholder {
+  color: rgba(255, 255, 255, 0.7);
+}
+.search-input:focus {
+  outline: none;
+  box-shadow: 0 0 15px var(--color-acento);
+}
+
+.close-search-btn {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  font-size: 3rem;
+  color: var(--color-texto-claro);
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+/* El botón de buscar dentro del modal no es necesario, pero lo dejamos por si acaso */
+.search-button {
+  display: none;
+}
+
+/* Estilos para el Offcanvas del Carrito */
+#offcanvasCart .offcanvas-title {
+  font-family: var(--font-titulos);
+  color: var(--color-primario);
+}
+.cart-item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid #eee;
+}
+.cart-item img {
+  width: 60px;
+  height: 60px;
+  object-fit: cover;
+  margin-right: 1rem;
+  border-radius: 8px;
+}
+.cart-item-info {
+  flex-grow: 1;
+}
+.cart-item-info h6 {
+  margin-bottom: 0.25rem;
+  font-size: 0.9rem;
+}
+.cart-item-info .price {
+  color: var(--color-primario);
+  font-weight: bold;
+}
+.remove-from-cart-btn {
+  background: none;
+  border: none;
+  color: #dc3545;
+  font-size: 1.2rem;
+}
+
+/* ===== ESTILOS PARA PÁGINA DE CONTACTO ===== */
+
+/* Título principal de contacto */
+.contact-title {
+  color: var(--color-primario);
+  background-clip: text;
+  font-weight: 700;
+  font-family: "Staatliches", "Montserrat", sans-serif;
+}
+
+/* Cards de contacto */
+.contact-card {
+  border: none;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+  border-radius: 15px;
+  transition: all 0.3s ease;
+  background: linear-gradient(145deg, #ffffff, var(--gs-gris));
+}
+
+.contact-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.18);
+}
+
+/* Información de contacto */
+.contact-info .info-item {
+  padding: 1rem;
+  border-radius: 10px;
+  background: rgba(0, 123, 255, 0.05);
+  transition: all 0.3s ease;
+  border-left: 3px solid var(--gs-azul);
+}
+
+.contact-info .info-item:hover {
+  background: rgba(0, 123, 255, 0.1);
+  transform: translateX(5px);
+  border-left-color: var(--gs-naranja);
+}
+
+/* Botón del mapa */
+.map-btn {
+  background: linear-gradient(
+    135deg,
+    var(--gs-azul),
+    var(--gs-azul-oscuro-menu)
+  );
+  border: none;
+  border-radius: 25px;
+  padding: 12px 30px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(0, 123, 255, 0.3);
+  font-family: "Montserrat", sans-serif;
+}
+
+.map-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(0, 123, 255, 0.4);
+  background: linear-gradient(
+    135deg,
+    var(--gs-azul-oscuro-menu),
+    var(--gs-naranja)
+  );
+}
+
+/* Horarios */
+.schedule-item {
+  padding: 0.75rem;
+  border-radius: 8px;
+  background: rgba(108, 117, 125, 0.05);
+  transition: all 0.2s ease;
+  border-left: 2px solid var(--gs-azul);
+}
+
+.schedule-item:hover {
+  background: rgba(108, 117, 125, 0.1);
+  border-left-color: var(--gs-verde);
+}
+
+/* Lista de servicios */
+.services-list {
+  background: rgba(40, 167, 69, 0.05);
+  padding: 1.5rem;
+  border-radius: 10px;
+  border-left: 4px solid var(--gs-verde);
+}
+
+.service-item {
+  padding: 0.5rem 0;
+  font-weight: 500;
+  transition: all 0.2s ease;
+}
+
+.service-item:hover {
+  color: var(--gs-verde);
+  transform: translateX(5px);
+}
+
+/* Card de contacto rápido */
+.contact-quick-card {
+  background: linear-gradient(135deg, var(--gs-gris), #e9ecef);
+  border: none;
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  border-top: 4px solid var(--gs-azul);
+}
+
+.contact-btn {
+  border-radius: 15px;
+  padding: 15px 20px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  font-family: "Montserrat", sans-serif;
+}
+
+.contact-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+.contact-btn.btn-outline-primary:hover {
+  background-color: var(--gs-azul);
+  border-color: var(--gs-azul);
+}
+
+.contact-btn.btn-outline-success:hover {
+  background-color: var(--gs-verde);
+  border-color: var(--gs-verde);
+}
+
+/* Iconos Font Awesome */
+.fas,
+.fab {
+  font-size: 1.1em;
+}
+
+/* Animación para los badges */
+.badge {
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(0, 123, 255, 0.7);
+  }
+  70% {
+    box-shadow: 0 0 0 10px rgba(0, 123, 255, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(0, 123, 255, 0);
+  }
+}
+
+/*
+==============================================
+=== ESTILOS CORREGIDOS PÁGINA "ACERCA DE" ====
+==============================================
+*/
+
+/* Hero Section */
+.about-hero {
+  background: var(--color-fondo-neutro);
+  border-bottom: 3px solid var(--color-primario);
+}
+.about-title {
+  color: var(--color-primario);
+  font-family: var(--font-titulos);
+  font-weight: 700;
+}
+.about-hero-icon {
+  font-size: 8rem;
+  color: var(--color-primario);
+  opacity: 0.1;
+  animation: float 3s ease-in-out infinite;
+}
+
+/* Animación para el icono flotante */
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+/* Títulos de Sección */
+.section-title {
+  color: var(--color-primario);
+  font-family: var(--font-titulos);
+  font-weight: 600;
+  position: relative;
+  padding-bottom: 15px;
+}
+.section-title::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 4px;
+  background: var(--color-acento);
+  border-radius: 2px;
+}
+.section-subtitle {
+  font-size: 1.2rem;
+  color: var(--color-texto-secundario);
+  margin-bottom: 2rem;
+}
+
+/* Sección de Historia (Timeline) */
+.history-section {
+  background: #ffffff;
+}
+.timeline {
+  position: relative;
+  padding-left: 2rem;
+}
+.timeline::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 3px;
+  background: var(--color-primario);
+  border-radius: 2px;
+}
+.timeline-item {
+  position: relative;
+  margin-bottom: 2rem;
+  padding-left: 2rem;
+}
+.timeline-item::before {
+  content: "";
+  position: absolute;
+  left: -0.5rem;
+  top: 0.5rem;
+  width: 16px;
+  height: 16px;
+  background: var(--color-acento);
+  border-radius: 50%;
+  transform: translateX(-50%);
+}
+.timeline-year {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--color-acento);
+}
+.timeline-content h5 {
+  color: var(--color-primario);
+  font-weight: 600;
+}
+.timeline-content p {
+  color: var(--color-texto-secundario);
+}
+
+/* Sección "Por qué elegirnos" */
+.why-choose-section {
+  background: var(--color-primario);
+  color: var(--color-texto-claro);
+}
+.why-choose-section .section-title {
+  color: var(--color-texto-claro);
+}
+.why-choose-section .section-title::after {
+  background: var(--color-acento);
+}
+.why-choose-section .section-subtitle {
+  color: rgba(255, 255, 255, 0.8);
+}
+.why-card {
+  background: #ffffff;
+  padding: 2.5rem 1.5rem;
+  border-radius: 15px;
+  text-align: center;
+  transition: all 0.3s ease;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  height: 100%;
+  border-top: 5px solid var(--color-acento);
+}
+.why-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
+}
+.why-icon {
+  font-size: 4rem;
+  color: var(--color-primario);
+  margin-bottom: 1.5rem;
+}
+.why-card h3 {
+  color: #333;
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+.why-card p {
+  color: var(--color-texto-secundario);
+}
+
+/* Sección Call to Action (CTA) */
+.cta-section {
+  background: var(--color-fondo-neutro);
+}
+.cta-card {
+  background: #ffffff;
+  padding: 3rem;
+  border-radius: 20px;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+}
+.cta-card h3 {
+  color: var(--color-primario);
+}
+.cta-btn {
+  border-radius: 50px;
+  padding: 12px 30px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  transition: all 0.3s ease;
 }
